@@ -1,13 +1,13 @@
 {# templates/sorteo/menu.html.twig #}
 <h2>Menu</h2>
 <ul>
-    <li {% if seccionActual == "inicio" %}class=”actual”{% endif %}>
+    <li {% if seccionActual == "inicio" %}class="actual"{% endif %}>
         <a href="{{ path('app_index') }}">Inicio</a>
     </li>
-    <li {% if seccionActual == "numero" %}class=”actual”{% endif %}>
+    <li {% if seccionActual == "numero" %}class="actual"{% endif %}>
         <a href="{{ path('app_numero_sorteo') }}">Número</a>
     </li>
-    <li {% if seccionActual == "euromillones" %}class=”actual”{% endif %}>
+    <li {% if seccionActual == "euromillones" %}class="actual"{% endif %}>
         <a href="{{ path('app_euromillones') }}">Euromillones</a>
     </li>
 </ul>
