@@ -5,3 +5,10 @@ app_numero_sorteo:
     controller: App\Controller\SorteoController::numero
     defaults:
         maximo: 100
+
+app_suma:
+    path: /suma/{num1}/{num2}
+    controller: App\Controller\SorteoController::suma
+    defaults:
+        num1: 2
+        num2: 2
