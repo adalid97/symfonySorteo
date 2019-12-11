@@ -8,3 +8,7 @@
 {{ form_widget(form) }}
 {{ form_end(form) }}
 {% endblock %}
+
+{% block sidebar %}
+  {{ include('sorteo/menu.html.twig', { 'seccionActual': "nuevaApuesta" }) }}
+{% endblock %}
