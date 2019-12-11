@@ -10,4 +10,7 @@
     <li {% if seccionActual == "euromillones" %}class="actual"{% endif %}>
         <a href="{{ path('app_euromillones') }}">Euromillones</a>
     </li>
+    <li {% if seccionActual == "nuevaApuesta" %}class="actual"{% endif %}>
+        <a href="{{ path('app_nueva_apuesta') }}">Nueva Apuesta</a>
+    </li>
 </ul>

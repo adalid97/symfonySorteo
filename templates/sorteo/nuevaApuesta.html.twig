@@ -1,0 +1,10 @@
+{# templates/sorteo/nuevaApuesta.html.twig #}
+{% extends 'sorteo/estructuraBase.html.twig' %}
+
+{% block title %}Nueva apuesta{% endblock %}
+
+{% block contenido %}
+{{ form_start(form) }}
+{{ form_widget(form) }}
+{{ form_end(form) }}
+{% endblock %}

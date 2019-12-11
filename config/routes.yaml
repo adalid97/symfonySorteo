@@ -20,3 +20,7 @@ app_index:
 app_euromillones:
     path: /sorteo/euromillones
     controller: App\Controller\SorteoController::euromillones
+
+app_nueva_apuesta:
+    path: /sorteo/apuestas/nueva
+    controller: App\Controller\SorteoController::nuevaApuesta

@@ -2,6 +2,11 @@
 // src/Controller/SorteoController.php
 namespace App\Controller;
 
+use App\Entity\Apuesta;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class SorteoController extends AbstractController
@@ -51,5 +56,25 @@ class SorteoController extends AbstractController
             $apuesta[] = $numero;
         }
         return $this->render('sorteo/euromillones.html.twig', ['apuesta' => $apuesta]);
+    }
+
+    public function nuevaApuesta(Request $request)
+    {
+        
+        $apuesta = new Apuesta();
+        /* Descomenta las siguientes líneas para rellenar la apuesta
+           con información de prueba en lugar de estar vacía */
+        // $apuesta->setTexto('2 13 34 44 48'); 
+        // $apuesta->setFecha(new \DateTime('tomorrow'));
+
+        $form = $this->createFormBuilder($apuesta)
+            ->add('texto', TextType::class)
+            ->add('fecha', DateType::class)
+            ->add('save', SubmitType::class, array('label' => 'Añadir Apuesta'))
+            ->getForm();
+
+        return $this->render('sorteo/nuevaApuesta.html.twig', array(
+            'form' => $form->createView(),
+        ));
     }
 }
