@@ -14,5 +14,9 @@ app_suma:
         num2: 2
 
 app_index:
-  path: /
-  controller: App\Controller\SorteoController::index
+    path: /
+    controller: App\Controller\SorteoController::index
+
+app_euromillones:
+    path: /sorteo/euromillones
+    controller: App\Controller\SorteoController::euromillones

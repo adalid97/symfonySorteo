@@ -35,4 +35,21 @@ class SorteoController extends AbstractController
             'resultado' => $resultado,
         ]);
     }
+    
+    public function euromillones() {
+        $apuesta = array();
+        for ($i=0; $i<5; $i++) {
+            do {
+                $numero = random_int(1, 50);
+            } while (in_array($numero, $apuesta));
+            $apuesta[] = $numero;
+        }
+        for ($i=0; $i<2; $i++) {
+            do {
+                $numero = random_int(1, 12);
+            } while (in_array($numero, $apuesta));
+            $apuesta[] = $numero;
+        }
+        return $this->render('sorteo/euromillones.html.twig', ['apuesta' => $apuesta]);
+    }
 }
