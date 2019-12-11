@@ -4,6 +4,9 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block titulo %}Aplicatión de prueba{% endblock %}</title>
+        {% block stylesheets %}
+        <link href="{{ asset('css/estilo.css') }}" rel="stylesheet" />
+        {% endblock %}
     </head>
     <body>
         <div id="sidebar">
@@ -15,5 +18,7 @@
         <div id="contenido">
             {% block contenido %}{% endblock %}
         </div>
+        {% block javascripts %}
+        {% endblock %}
     </body>
 </html>
