@@ -6,6 +6,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class SorteoController extends AbstractController
 {
+    public function index()
+    {
+        return $this->render('sorteo/index.html.twig');
+    }
+
     public function numero($maximo)
     {
         if (!is_numeric($maximo) || floatval($maximo) != intval($maximo)) {

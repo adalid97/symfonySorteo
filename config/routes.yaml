@@ -12,3 +12,7 @@ app_suma:
     defaults:
         num1: 2
         num2: 2
+
+app_index:
+  path: /
+  controller: App\Controller\SorteoController::index
