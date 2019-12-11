@@ -1,0 +1,11 @@
+{# templates/sorteo/menu.html.twig #}
+<h2>Menu</h2>
+<ul>
+    <li {% if seccionActual == "inicio" %}class=”actual”{% endif %}>
+        <a href="/">Inicio</a>
+    </li>
+    <li {% if seccionActual == "numero" %}class=”actual”{% endif %}>
+        <a href="/sorteo/numero">Número</a>
+    </li>
+	<!-- Más opciones -->
+</ul>

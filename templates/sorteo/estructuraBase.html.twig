@@ -8,12 +8,7 @@
     <body>
         <div id="sidebar">
             {% block sidebar %}
-                <h2>Menu</h2>
-                <ul>
-                    <li><a href="/">Inicio</a></li>
-                    <li><a href="/sorteo/numero">Número</a></li>
-                    <li><a href="/sorteo/euromillones">Euromillones</a></li>
-                </ul>
+            {{ include('sorteo/menu.html.twig', { 'seccionActual': "inicio" }) }}
             {% endblock %}
         </div>
 
