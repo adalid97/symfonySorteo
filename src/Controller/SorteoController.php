@@ -8,6 +8,10 @@ class SorteoController extends AbstractController
 {
     public function numero($maximo)
     {
+        if (!is_numeric($maximo) || floatval($maximo) != intval($maximo)) {
+            return $this->redirectToRoute('app_numero_sorteo', array('maximo' => 0));
+        }
+
         $numero = random_int(0, $maximo);
 
         return $this->render('sorteo/numero.html.twig', [
