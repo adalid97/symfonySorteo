@@ -1,0 +1,23 @@
+{# templates/sorteo/estructuraBase.html.twig #}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block titulo %}Aplicatión de prueba{% endblock %}</title>
+    </head>
+    <body>
+        <div id="sidebar">
+            {% block sidebar %}
+                <h2>Menu</h2>
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/sorteo/numero">Número</a></li>
+                </ul>
+            {% endblock %}
+        </div>
+
+        <div id="contenido">
+            {% block contenido %}{% endblock %}
+        </div>
+    </body>
+</html>

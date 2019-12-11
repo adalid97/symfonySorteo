@@ -16,6 +16,7 @@ class SorteoController extends AbstractController
 
         return $this->render('sorteo/numero.html.twig', [
             'numero' => $numero,
+            'maximo' => $maximo,
         ]);
     }
 
