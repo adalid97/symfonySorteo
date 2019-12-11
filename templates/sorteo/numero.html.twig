@@ -3,7 +3,7 @@
 {% block sidebar %}
   {{ include('sorteo/menu.html.twig', { 'seccionActual': "numero" }) }}
 {% endblock %}
-{% block title %}Sorteo entre 0 y {{maximo}}{% endblock %}
+{% block titulo %}Sorteo entre 0 y {{maximo}}{% endblock %}
 {% block contenido %}
 <h1>El resultado del sorteo es: {{ numero }}</h1>
 {% endblock %}
