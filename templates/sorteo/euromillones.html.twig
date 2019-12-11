@@ -16,3 +16,6 @@
 {% endfor %}
 </ul>
 {% endblock %}
+{% block sidebar %}
+  {{ include('sorteo/menu.html.twig', { 'seccionActual': "euromillones" }) }}
+{% endblock %}
