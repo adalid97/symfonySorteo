@@ -1,29 +1,57 @@
 <?php
-// src/Entity/Apuesta.php
+
 namespace App\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity(repositoryClass="App\Repository\ApuestaRepository")
+ */
 class Apuesta
 {
-    protected $texto;
-    protected $fecha;
+    /**
+     * @ORM\Id()
+     * @ORM\GeneratedValue()
+     * @ORM\Column(type="integer")
+     */
+    private $id;
 
-    public function getTexto()
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $texto;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $fecha;
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getTexto(): ?string
     {
         return $this->texto;
     }
 
-    public function setTexto($texto)
+    public function setTexto(string $texto): self
     {
         $this->texto = $texto;
+
+        return $this;
     }
 
-    public function getFecha()
+    public function getFecha(): ?\DateTimeInterface
     {
         return $this->fecha;
     }
 
-    public function setFecha(\DateTime $fecha = null)
+    public function setFecha(\DateTimeInterface $fecha): self
     {
         $this->fecha = $fecha;
+
+        return $this;
     }
 }
