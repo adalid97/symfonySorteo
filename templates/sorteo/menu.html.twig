@@ -2,12 +2,12 @@
 <h2>Menu</h2>
 <ul>
     <li {% if seccionActual == "inicio" %}class=”actual”{% endif %}>
-        <a href="{{ path('app_index') }}">Inicio</a>
+        <a href="/">Inicio</a>
     </li>
     <li {% if seccionActual == "numero" %}class=”actual”{% endif %}>
-        <a href="{{ path('app_numero_sorteo') }}">Número</a>
+        <a href="/sorteo/numero">Número</a>
     </li>
     <li {% if seccionActual == "euromillones" %}class=”actual”{% endif %}>
-        <a href="{{ path('app_euromillones') }}">Euromillones</a>
+        <a href="/sorteo/euromillones">Euromillones</a>
     </li>
 </ul>
