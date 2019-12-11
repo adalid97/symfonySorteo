@@ -24,3 +24,7 @@ app_euromillones:
 app_nueva_apuesta:
     path: /sorteo/apuestas/nueva
     controller: App\Controller\SorteoController::nuevaApuesta
+    
+app_apuesta_creada:
+    path: /apuesta/creada
+    controller: App\Controller\SorteoController::apuestaCreada

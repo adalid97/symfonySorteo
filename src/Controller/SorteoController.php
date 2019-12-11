@@ -60,11 +60,10 @@ class SorteoController extends AbstractController
 
     public function nuevaApuesta(Request $request)
     {
-        
+
         $apuesta = new Apuesta();
-        /* Descomenta las siguientes líneas para rellenar la apuesta
-           con información de prueba en lugar de estar vacía */
-        // $apuesta->setTexto('2 13 34 44 48'); 
+        // Rellenamos el objeto con información de prueba
+        // $apuesta->setTexto('2 13 34 44 48');
         // $apuesta->setFecha(new \DateTime('tomorrow'));
 
         $form = $this->createFormBuilder($apuesta)
@@ -73,8 +72,33 @@ class SorteoController extends AbstractController
             ->add('save', SubmitType::class, array('label' => 'Añadir Apuesta'))
             ->getForm();
 
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            // De esta manera podemos rellenar la variable
+            // $apuesta con los datos del formulario.
+            $apuesta = $form->getData();
+
+            // Obtenemos el gestor de entidades de Doctrine
+            $entityManager = $this->getDoctrine()->getManager();
+
+            // Le decimos a doctrine que nos gustaría almacenar
+            // el objeto de la variable en la base de datos
+            $entityManager->persist($apuesta);
+
+            // Ejecuta las consultas necesarias
+            $entityManager->flush();
+
+            //Redirigimos a una página de confirmación.
+            return $this->redirectToRoute('app_apuesta_creada');
+        }
+
         return $this->render('sorteo/nuevaApuesta.html.twig', array(
             'form' => $form->createView(),
         ));
+    }
+    public function apuestaCreada()
+    {
+        return $this->render('sorteo/apuestaCreada.html.twig');
     }
 }
