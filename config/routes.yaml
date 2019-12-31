@@ -28,3 +28,11 @@ app_nueva_apuesta:
 app_apuesta_creada:
     path: /apuesta/creada
     controller: App\Controller\SorteoController::apuestaCreada
+
+app_apuesta_ver:
+    path: /apuesta/ver/{id}
+    controller: App\Controller\SorteoController::verApuesta
+
+app_apuesta_lista:
+    path: /apuesta/
+    controller: App\Controller\SorteoController::listaApuestas
