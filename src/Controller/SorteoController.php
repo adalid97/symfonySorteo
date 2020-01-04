@@ -136,4 +136,43 @@ class SorteoController extends AbstractController
             'apuestas' => $apuestas,
         ));
     }
+    public function editarApuesta(Request $request, $id)
+    {
+        // Obtenemos el gestor de entidades de Doctrine
+        $entityManager = $this->getDoctrine()->getManager();
+
+        // Obtenenemos el repositorio de Apuestas y buscamos en el usando la id de la apuesta
+        $apuesta = $entityManager->getRepository(Apuesta::class)->find($id);
+
+        // Si la apuesta no existe lanzamos una excepción.
+        if (!$apuesta){
+            throw $this->createNotFoundException(
+                'No existe ninguna apuesta con id '.$id
+            );
+        }
+
+        // Creamos el formulario a partir de $apuesta
+        $form = $this->createFormBuilder($apuesta)
+            ->add('texto', TextType::class)
+            ->add('fecha', DateType::class)
+            ->add('save', SubmitType::class, array('label' => 'Editar Apuesta'))
+            ->getForm();
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            // De esta manera podemos sobreescribir la variable $apuesta con los datos del formulario.
+            $apuesta = $form->getData();
+
+            // Ejecuta las consultas necesarias (UPDATE en este caso)
+            $entityManager->flush();
+
+            //Redirigimos a la página de ver la apuesta editada.
+            return $this->redirectToRoute('app_apuesta_ver', array('id'=>$id));
+        }
+
+        return $this->render('sorteo/nuevaApuesta.html.twig', array(
+            'form' => $form->createView(),
+        ));
+    }
 }
