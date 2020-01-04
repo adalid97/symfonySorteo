@@ -40,3 +40,7 @@ app_apuesta_lista:
 app_apuesta_editar:
     path: /apuesta/editar/{id}
     controller: App\Controller\SorteoController::editarApuesta
+
+app_apuesta_borrar:
+  path: /apuesta/borrar/{id}
+  controller: App\Controller\SorteoController::borrarApuesta

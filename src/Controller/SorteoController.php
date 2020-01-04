@@ -175,4 +175,22 @@ class SorteoController extends AbstractController
             'form' => $form->createView(),
         ));
     }
+    public function borrarApuesta($id)
+    {
+        // Obtenemos el gestor de entidades de Doctrine
+        $entityManager = $this->getDoctrine()->getManager();
+
+        // Obtenenemos el repositorio de Apuestas y buscamos en el usando la id de la apuesta
+        $apuesta= $entityManager->getRepository(Apuesta::class)->find($id);
+
+        // Si la apuesta no existe lanzamos una excepción.
+        if (!$apuesta){
+            throw $this->createNotFoundException(
+                'No existe ninguna apuesta con id '.$id
+            );
+        }
+        $entityManager->remove($apuesta);
+        $entityManager->flush();
+        return $this->render('sorteo/apuestaBorrada.html.twig');
+    }
 }

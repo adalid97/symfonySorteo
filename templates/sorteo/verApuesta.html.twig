@@ -3,5 +3,6 @@
 {% block contenido %}
 <p>Apuesta: {{ apuesta.texto }} ({{ apuesta.fecha|date("d/m/Y") }})</p>
 <p><a href="{{ path('app_apuesta_editar', {'id' : apuesta.id}) }}">Editar</a></p>
+<p><a href="{{ path('app_apuesta_borrar', {'id' : apuesta.id}) }}">Borrar</a></p>
 {% endblock %}
 {% block titulo %}Apuesta {{apuesta.id}}{% endblock %}
